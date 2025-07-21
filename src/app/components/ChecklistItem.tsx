@@ -6,9 +6,9 @@ interface ChecklistProps {
 
 export function ChecklistItem({ title, content }: ChecklistProps) {
   return (
-    <div className="bg-slate-700 p-4 rounded-md shadow-md text-white mb-4">
-      <h3 className="font-semibold text-md text-purple-200 mb-1">{title}</h3>
-      <p className="text-sm opacity-90">{content}</p>
+    <div className="bg-white/10 backdrop-blur-md p-4 rounded-lg shadow text-white mb-4">
+      <h3 className="font-semibold text-md mb-1 text-violet-200">{title}</h3>
+      <p className="text-sm text-gray-200">{content}</p>
     </div>
   );
 }
