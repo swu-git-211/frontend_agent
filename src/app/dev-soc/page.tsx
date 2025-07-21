@@ -3,7 +3,8 @@ import AttackTypeCard from '../components/AttackTypeCard'
 import { RecommendationCard } from '../components/RecommendationCard'
 import { ChecklistItem } from '../components/ChecklistItem'
 import CustomerToolsCard from '../components/CustomerToolsCard'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
+
 
 export default function Page() {
   return (
