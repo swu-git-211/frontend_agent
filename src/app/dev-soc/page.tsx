@@ -4,11 +4,13 @@ import { RecommendationCard } from '../components/RecommendationCard'
 import { ChecklistItem } from '../components/ChecklistItem'
 import CustomerToolsCard from '../components/CustomerToolsCard'
 import Footer from '../components/footer'
+import TimelineProcess from '../components/TimelineProcess'
 
 
 export default function Page() {
   return (
     <>
+    <TimelineProcess />
     <main className="grid grid-cols-2 gap-6 p-6">
       <div>
         <OverviewCard />
