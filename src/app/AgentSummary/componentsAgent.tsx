@@ -373,14 +373,81 @@ export function TimelineProcess() {
 
   // สร้าง UI timeline แสดงแต่ละ stage ตาม progress ปัจจุบัน
   return (
-    <Box sx={{ width: '100%', overflowX: 'auto', px: 2, py: 3 }}>
-      <Stepper activeStep={currentStep} alternativeLabel>
-        {stages.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+    <Box sx={{ overflowX: 'auto', px: 2, py: 3 }}>
+      <Box
+        sx={{
+          position: 'relative',
+          display: 'flex',
+          minWidth: 800,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          px: 4,
+          py: 4,
+          borderRadius: 3,
+          background: 'linear-gradient(to right, #1e293b, #4b0082)',
+          border: '1px solid #8b5cf6',
+        }}
+      >
+        {/* Render connecting line first */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '38px',
+            left: 'calc(10px + 4px)',
+            right: 'calc(10px + 4px)',
+            height: 4,
+            background: '#6b7280',
+            borderRadius: 2,
+            zIndex: 0,
+          }}
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '38px',
+            left: 'calc(10px + 4px)',
+            height: 4,
+            background: '#facc15',
+            borderRadius: 2,
+            zIndex: 1,
+            width: `${progress * 100}%`,
+            transition: 'width 0.3s ease',
+          }}
+        />
+
+        {stages.map((stage, idx) => {
+          const stepProgress = idx / (stages.length - 1);
+          const isReached = progress >= stepProgress;
+
+          return (
+            <Box key={idx} sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+              <Box
+                sx={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: '50%',
+                  border: '4px solid',
+                  backgroundColor: isReached ? '#a855f7' : '#374151',
+                  borderColor: isReached ? '#d8b4fe' : '#6b7280',
+                  transition: 'all 0.3s ease',
+                  zIndex: 2,
+                }}
+              />
+              <Typography
+                sx={{
+                  mt: 1,
+                  fontSize: '0.85rem',
+                  fontWeight: isReached ? 600 : 400,
+                  color: isReached ? '#fff' : '#9ca3af',
+                  textAlign: 'center',
+                }}
+              >
+                {stage}
+              </Typography>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 }

@@ -396,6 +396,10 @@ function DevSocPage({ role, setRole }: { role: any; setRole: any }) {
         </Typography>
       </Box>
 
+      {/* เพิ่ม TimelineProcess ตรงนี้ */}
+      <TimelineProcess />
+
+
       <Box sx={layout.gridTwoColumn}>
         <Box>
           <SectionWrapper title="Overview">
